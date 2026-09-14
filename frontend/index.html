@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MDM — управление мастер-данными</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <!--
+      Нажатия в интерфейсе - в общий журнал действий (модуль на 9010).
+      Серверу видны только запросы: «открыл справочник» он покажет, а «нажал
+      Сохранить, потом Отмена» - нет. На вопрос «куда нажал» отвечает только
+      браузер.
+
+      Пропуск: sessionStorage под ключом mdm_sso_token (см. src/auth.js) и
+      уходит в Authorization: Bearer. Именно sessionStorage и именно этот ключ:
+      MDM ловит ?token= из адреса один раз и сразу вычищает его из строки
+      браузера, поэтому ни в localStorage, ни в адресе пропуска потом нет -
+      нажатия ушли бы без автора.
+    -->
+    <script
+      src="/journal-ui.js"
+      data-endpoint="/api/v1/journal/ui"
+      data-token-key="mdm_sso_token"
+      data-token-storage="session"
+      defer
+    ></script>
+  </body>
+</html>

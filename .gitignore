@@ -1,0 +1,17 @@
+# Только код модуля MDM (backend/frontend) — остальное содержимое
+# C:\MDM (документы, экспорты, старый прототип) сюда не входит.
+*
+!backend/
+!backend/**
+!frontend/
+!frontend/**
+!README.md
+!MODULE_DEVELOPER_GUIDE.md
+!start-mdm.cmd
+!.gitignore
+
+node_modules/
+dist/
+.env
+data/*.db
+data/*.db-journal

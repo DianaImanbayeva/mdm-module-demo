@@ -1,0 +1,10 @@
+{
+  "name": "MDM — Мастер-данные",
+  "version": "0.1.0",
+  "icon": "🗂️",
+  "endpoints": {
+    "health": "/health",
+    "api": "/api/v1"
+  },
+  "scopes": ["read", "write"]
+}
